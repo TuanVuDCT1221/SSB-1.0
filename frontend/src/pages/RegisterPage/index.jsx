@@ -1,22 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../styles/login.css";
+import "./Register.css";
 
-export default function LoginPage() {
+export default function RegisterPage() {
   return (
     <div className="auth-container">
-      <h1 className="title">Đăng nhập</h1>
+      <h1 className="title">Đăng ký</h1>
 
       <form className="auth-form">
+        <input type="text" placeholder="Tên người dùng" required />
         <input type="email" placeholder="Email" required />
         <input type="password" placeholder="Mật khẩu" required />
-        <button className="btn-primary">Đăng nhập</button>
+        <button className="btn-primary">Tạo tài khoản</button>
       </form>
 
       <p className="switch-text">
-        Chưa có tài khoản?{" "}
-        <Link to="/register" className="link">
-          Đăng ký
+        Đã có tài khoản?{" "}
+        <Link to="/" className="link">
+          Đăng nhập
         </Link>
       </p>
     </div>
