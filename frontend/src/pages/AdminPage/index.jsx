@@ -8,7 +8,7 @@ import {
     FaTachometerAlt, FaBus, FaUserGraduate, FaIdCard,
     FaCalendarAlt, FaRoute, FaPlay, FaRedo, FaMapMarkerAlt
 } from 'react-icons/fa';
-
+const MAPQUEST_KEY = 'Aj7p6GF6c3hfv2hGqXGGLG9v2nLh8zQ6';
 const universityLocation = [10.7629, 106.6825];
 const busStops = [
     { id: 1, name: "Trạm Quận 12 - Xuất phát", address: "QL22, Phường Trung Mỹ Tây, Quận 12", coords: [10.8612, 106.6115], roadPath: [[10.8612, 106.6115], [10.856, 106.616], [10.851, 106.621], [10.846, 106.626]] },
@@ -269,8 +269,14 @@ const DashboardView = () => {
                     whenCreated={mapInstance => { mapRef.current = mapInstance; }}
                 >
                     <TileLayer
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+// 1. URL PHẢI là "otile" 
+    url={`https://otile{s}-s.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg?key=${MAPQUEST_KEY}`}
+    
+    // 2. PHẢI CÓ "attribution"
+    attribution='Tiles &copy; <a href="http://www.mapquest.com/">MapQuest</a>'
+    
+    // 3. ĐÂY LÀ PHẦN QUAN TRỌNG NHẤT (bắt buộc)
+    subdomains={['1', '2', '3', '4']}
                     />
                     
                     {/* Vẽ tuyến đường */}
