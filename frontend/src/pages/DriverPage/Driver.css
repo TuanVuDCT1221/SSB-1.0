@@ -1,0 +1,343 @@
+/* src/pages/DriverPage/DriverPage.css */
+
+/* --- BIẾN MÀU (Nên đặt trong index.css) --- */
+:root {
+    --primary-color: #1e5799;
+    /* Xanh dương */
+    --secondary-color: #1a253c;
+    /* Xanh đậm header */
+    --light-bg: #f0f2f5;
+    /* Nền trang */
+    --card-bg: #ffffff;
+    /* Nền thẻ */
+    --text-color: #333;
+    /* Chữ chính */
+    --text-light: #f1f1f1;
+    /* Chữ trên nền tối */
+    --border-color: #e0e0e0;
+    /* Viền */
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    /* Bóng đổ */
+
+    --color-success: #2ecc71;
+    /* Xanh lá */
+    --color-warning: #f39c12;
+    /* Vàng */
+    --color-danger: #e74c3c;
+    /* Đỏ */
+    --color-info: #3498db;
+    /* Xanh nhạt */
+    --color-grey: #7f8c8d;
+    /* Xám */
+}
+
+
+.driverPage {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--light-bg);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* Ngăn cuộn toàn trang */
+}
+
+.header {
+    background: var(--secondary-color);
+    color: var(--text-light);
+    padding: 1rem 1.5rem;
+    /* Giảm padding header */
+    font-size: 1.1rem;
+    /* Giảm font header */
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    /* Cho nút cảnh báo */
+    justify-content: center;
+    /* Căn giữa tên tài xế */
+    align-items: center;
+    position: relative;
+    /* Để định vị nút cảnh báo */
+}
+
+/* Nút cảnh báo TRÊN HEADER */
+.btnAlertHeader {
+    position: absolute;
+    right: 15px;
+    background-color: var(--color-danger);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.btnAlertHeader:hover {
+    background-color: #c0392b;
+    /* Đỏ đậm hơn */
+}
+
+
+/* --- LAYOUT 2 CỘT --- */
+.driverLayout {
+    display: flex;
+    flex-grow: 1;
+    /* Chiếm hết không gian còn lại */
+    height: calc(100vh - 58px);
+    /* Chiều cao trừ đi header (điều chỉnh nếu cần) */
+}
+
+.mapColumn {
+    flex: 6;
+    /* Chiếm 60% */
+    height: 100%;
+    position: relative;
+    /* Cho Leaflet */
+    border-right: 1px solid var(--border-color);
+}
+
+.controlColumn {
+    flex: 4;
+    /* Chiếm 40% */
+    height: 100%;
+    overflow-y: auto;
+    /* Cho phép cuộn nội dung bên phải */
+    padding: 1.5rem;
+    box-sizing: border-box;
+    display: flex;
+    /* Căn giữa card */
+    justify-content: center;
+}
+
+.card {
+    width: 100%;
+    max-width: 95%;
+    /* Giới hạn chiều rộng card */
+    background: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    /* Giảm padding card */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /* Giảm khoảng cách giữa các phần tử */
+    align-self: flex-start;
+    /* Giữ card ở trên */
+    max-height: 95%;
+    /* Ngăn card tràn viền */
+}
+
+
+/* --- CÁC PHẦN GIAO DIỆN (Điều chỉnh từ code cũ) --- */
+
+/* Màn hình Lịch trình */
+.scheduleTitle {
+    /* ... giữ nguyên ... */
+}
+
+.scheduleItem {
+    /* ... giữ nguyên ... */
+}
+
+.scheduleTime {
+    /* ... giữ nguyên ... */
+}
+
+.scheduleRoute {
+    /* ... giữ nguyên ... */
+}
+
+.scheduleBus {
+    /* ... giữ nguyên ... */
+}
+
+.btnSelect {
+    /* ... giữ nguyên ... */
+}
+
+.statusCompleted {
+    /* ... giữ nguyên ... */
+}
+
+/* Màn hình Chi tiết Chuyến & Pending */
+.tripInfo {
+    /* ... giữ nguyên ... */
+}
+
+.busIcon {
+    /* ... giữ nguyên ... */
+}
+
+.tripInfo h2 {
+    /* ... giữ nguyên ... */
+}
+
+.routeName {
+    /* ... giữ nguyên ... */
+}
+
+.tripInfo p {
+    /* ... giữ nguyên ... */
+}
+
+.btnBack {
+    /* ... giữ nguyên ... */
+}
+
+/* Trạng thái Completed */
+.finishIcon {
+    /* ... giữ nguyên ... */
+}
+
+/* Các style khác cho h2, p giữ nguyên */
+
+/* Trạng thái In-Progress */
+.stopHeader {
+    /* ... giữ nguyên ... */
+}
+
+.stopHeader svg {
+    /* ... giữ nguyên ... */
+}
+
+.stopLabel {
+    /* ... giữ nguyên ... */
+}
+
+.stopName {
+    /* ... giữ nguyên ... */
+}
+
+/* Danh sách học sinh */
+.studentList {
+    flex-grow: 1;
+    /* Cho phép danh sách co giãn */
+    max-height: none;
+    /* Bỏ max-height cũ */
+    overflow-y: auto;
+    /* Cuộn nếu cần */
+    padding-right: 8px;
+    margin-bottom: 1rem;
+    /* Khoảng cách với nút Next */
+}
+
+.studentListTitle {
+    /* ... giữ nguyên ... */
+}
+
+.noStudents {
+    /* ... giữ nguyên ... */
+}
+
+.studentItem {
+    /* ... giữ nguyên ... */
+}
+
+.studentItem.pickup {
+    /* ... giữ nguyên ... */
+}
+
+.studentItem.dropoff {
+    /* ... giữ nguyên ... */
+}
+
+.studentName {
+    /* ... giữ nguyên ... */
+}
+
+.studentActions {
+    /* ... giữ nguyên ... */
+}
+
+.statusOnBus,
+.statusAbsent {
+    /* ... giữ nguyên ... */
+}
+
+/* --- Nút Bấm --- */
+.btn {
+    width: 100%;
+    padding: 1.2rem;
+    /* Giảm padding nút chính */
+    font-size: 1.1rem;
+    /* Giảm font nút chính */
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s ease;
+    margin-top: auto;
+    /* Đẩy nút xuống dưới cùng */
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btnStart {
+    background-color: var(--color-success);
+    color: white;
+}
+
+.btnStart:hover {
+    background-color: #27ae60;
+}
+
+.btnNext {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btnNext:hover {
+    background-color: #16427a;
+}
+
+.btnBack {
+    background-color: var(--color-grey);
+    color: white;
+}
+
+.btnBack:hover {
+    background-color: #6c7a7b;
+}
+
+/* Nút nhỏ điểm danh */
+.btnSm {
+    padding: 0.6rem 0.9rem;
+    /* Giảm padding nút nhỏ */
+    font-size: 0.9rem;
+    /* Giảm font nút nhỏ */
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+    /* Ngăn xuống dòng */
+}
+
+.btnCheckIn {
+    background-color: var(--color-info);
+    color: white;
+}
+
+.btnAbsent {
+    background-color: var(--color-warning);
+    color: #333;
+}
